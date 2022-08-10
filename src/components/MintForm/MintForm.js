@@ -6,7 +6,7 @@ import { NFTStorage } from 'nft.storage'
 import { utils } from 'ethers'
 import MintSongButton from '@/components/MintSongButton'
 import MintBasicFormFields from '@/components/MintBasicFormFields'
-import contractInterface from '@/abi/catalog-factory-abi.json'
+import contractInterface from '@/abi/factory-abi.json'
 import moduleManagerContractInterface from '@/abi/module-manager-abi.json'
 import createMusicMetadata from '@/utils/createMusicMetadata'
 import getZoraAsksV1_1Address from '@/utils/getZoraAsksV1_1Address'
@@ -16,7 +16,7 @@ const MintForm = ({ contractAddress, moduleManagerContractAddress }) => {
 	const [loading, setLoading] = useState(false)
 	const { data: signer } = useSigner()
 	const { chain } = useNetwork()
-	const catalogFactoryContract = useContract({
+	const factoryContract = useContract({
 		addressOrName: contractAddress,
 		contractInterface: contractInterface,
 		signerOrProvider: signer,
@@ -44,7 +44,7 @@ const MintForm = ({ contractAddress, moduleManagerContractAddress }) => {
 			return
 		}
 
-		await deployCatalog(ipfs.url, metadata.name, data.sellerFundsRecipient, askPrice, findersFee)
+		await deployMusicNft(ipfs.url, metadata.name, data.sellerFundsRecipient, askPrice, findersFee)
 		setLoading(false)
 	}
 
@@ -67,8 +67,8 @@ const MintForm = ({ contractAddress, moduleManagerContractAddress }) => {
 		return approved
 	}
 
-	const deployCatalog = async (metadata, curatorName, sellerFundsRecipient, askPrice, findersFee) => {
-		await catalogFactoryContract
+	const deployMusicNft = async (metadata, curatorName, sellerFundsRecipient, askPrice, findersFee) => {
+		await factoryContract
 			.createCatalog(curatorName, metadata, askPrice, sellerFundsRecipient || address, findersFee, {
 				value: 500000000000000,
 			})

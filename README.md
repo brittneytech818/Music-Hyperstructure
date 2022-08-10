@@ -7,7 +7,7 @@
 -   decentralized music nfts - [music metadata standard](https://www.npmjs.com/package/onchain-music-metadata)
 -   Ethereum, Polygon, Rinkeby & Mumbai (see below).
 
-[Live app](https://catalog-factory-rose.vercel.app/)
+[Live app](https://musicnfts.vercel.app/)
 
 ![Cover Image (3)](https://user-images.githubusercontent.com/23249402/183305067-10d10e98-0fad-485a-bdab-b82d49a19a1d.png)
 

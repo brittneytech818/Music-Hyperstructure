@@ -1,1 +1,1 @@
-export const APP_NAME = 'Catalog Factory'
+export const APP_NAME = 'music nft studio'
