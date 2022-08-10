@@ -11,6 +11,14 @@
 
 ![Cover Image (3)](https://user-images.githubusercontent.com/23249402/183305067-10d10e98-0fad-485a-bdab-b82d49a19a1d.png)
 
+## Metadata
+
+-   `duration` - Length of the audio file in seconds (must be > 1ms)
+-   `mimeType` - MimeType of the audio file. Only lossless formats (aif, wav, flac) are supported
+-   `trackNumber` - The place which the track appears in its project (e.g. track 4 off an album)
+-   `genre` - The genre of the track
+-   `bpm` - The BPM of the track
+
 ## Deployments
 
 -   Ethereum mainnet: [0x847058B7f0df8F8d76c03e3af853CB17284DcF75](https://etherscan.io/address/0x847058B7f0df8F8d76c03e3af853CB17284DcF75#code)

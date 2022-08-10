@@ -3,7 +3,14 @@ import FormInput from '@/components/FormInput'
 const MintAdvancedFormFields = () => {
 	return (
 		<>
-			<FormInput id="name2" label="Song title 2" placeholder="Keep it Heady" />
+			<FormInput
+				id="duration"
+				label="Duration (seconds)"
+				step={1}
+				min={0}
+				type="number"
+				placeholder="Length of the audio file in seconds"
+			/>
 		</>
 	)
 }

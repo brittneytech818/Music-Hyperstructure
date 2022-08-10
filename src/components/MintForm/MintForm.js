@@ -32,19 +32,21 @@ const MintForm = ({ contractAddress, moduleManagerContractAddress }) => {
 	const onSubmit = async data => {
 		setLoading(true)
 		data.address = address
+		console.log(data)
 		const metadata = createMusicMetadata(data, address)
 		const client = new NFTStorage({ token: process.env.NEXT_PUBLIC_API_KEY })
 		const ipfs = await client.store(metadata)
 
-		const askPrice = utils.parseEther(data.askPrice || '0').toString()
-		const findersFee = parseInt(data.findersFeeBps || 0) * 100
-		const isApproved = await checkAskModuleApproved()
-		if (!isApproved) {
-			setLoading(false)
-			return
-		}
+		console.log(ipfs.url)
+		// const askPrice = utils.parseEther(data.askPrice || '0').toString()
+		// const findersFee = parseInt(data.findersFeeBps || 0) * 100
+		// const isApproved = await checkAskModuleApproved()
+		// if (!isApproved) {
+		// 	setLoading(false)
+		// 	return
+		// }
 
-		await deployMusicNft(ipfs.url, metadata.name, data.sellerFundsRecipient, askPrice, findersFee)
+		// await deployMusicNft(ipfs.url, metadata.name, data.sellerFundsRecipient, askPrice, findersFee)
 		setLoading(false)
 	}
 

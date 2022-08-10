@@ -73,6 +73,7 @@ const createMusicMetadata = data => {
 	music_metadata.animation_url = data.song
 	music_metadata.losslessAudio = data.song
 	music_metadata.description = data.description
+	music_metadata.duration = parseInt(data.duration)
 	const project = {
 		title: data.name,
 		artwork: {
