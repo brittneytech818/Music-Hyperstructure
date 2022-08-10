@@ -6,7 +6,7 @@ const FormInput = ({ id, label, min, placeholder, step, suffix, type }) => {
 
 	return (
 		<Input
-			width="180"
+			width={{ md: '180' }}
 			id={id}
 			label={label}
 			min={min}
