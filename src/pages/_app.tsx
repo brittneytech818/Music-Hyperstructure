@@ -8,6 +8,8 @@ import '@rainbow-me/rainbowkit/styles.css'
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
 import { ThemeProvider } from 'degen'
 import { publicProvider } from 'wagmi/providers/public'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const { chains, provider } = configureChains(
 	[chain.polygon, chain.mainnet, chain.polygonMumbai, chain.rinkeby],
@@ -29,6 +31,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 					overlayBlur: 'small',
 				})}>
 					<Component {...pageProps} />
+					<ToastContainer />
 				</RainbowKitProvider>
 			</WagmiConfig>
 		</ThemeProvider>

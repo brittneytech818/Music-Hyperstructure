@@ -10,6 +10,7 @@ import contractInterface from '@/abi/factory-abi.json'
 import moduleManagerContractInterface from '@/abi/module-manager-abi.json'
 import createMusicMetadata from '@/utils/createMusicMetadata'
 import getZoraAsksV1_1Address from '@/utils/getZoraAsksV1_1Address'
+import { toast } from 'react-toastify'
 
 const MintForm = ({ contractAddress, moduleManagerContractAddress }) => {
 	const { address } = useAccount()
@@ -38,6 +39,11 @@ const MintForm = ({ contractAddress, moduleManagerContractAddress }) => {
 		const ipfs = await client.store(metadata)
 
 		console.log(ipfs.url)
+		toast.success(
+			<a href={ipfs.url} target="__blank">
+				created music metadata. click me to learn more.
+			</a>
+		)
 		// const askPrice = utils.parseEther(data.askPrice || '0').toString()
 		// const findersFee = parseInt(data.findersFeeBps || 0) * 100
 		// const isApproved = await checkAskModuleApproved()
