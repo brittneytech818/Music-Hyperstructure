@@ -1,11 +1,12 @@
 import FormInput from '@/components/FormInput'
 import { MediaPicker } from '@/components/MediaPicker.tsx'
-import { Box, FieldSet, Textarea } from 'degen'
+import Accordion from '@/components/Accordion'
+import { FieldSet, Textarea } from 'degen'
 import { useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useAccount, useNetwork } from 'wagmi'
 
-const MintFormFields = () => {
+const MintBasicFormFields = () => {
 	const { register, setValue } = useFormContext()
 	const { chain } = useNetwork()
 	const { address } = useAccount()
@@ -66,8 +67,9 @@ const MintFormFields = () => {
 				label="Seller fund recipient"
 				placeholder={address ?? '0xA0Cf…251e'}
 			/>
+			<Accordion />
 		</FieldSet>
 	)
 }
 
-export default MintFormFields
+export default MintBasicFormFields

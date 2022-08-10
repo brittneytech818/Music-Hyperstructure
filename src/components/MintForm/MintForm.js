@@ -5,7 +5,7 @@ import { useAccount, useContract, useNetwork, useSigner } from 'wagmi'
 import { NFTStorage } from 'nft.storage'
 import { utils } from 'ethers'
 import MintSongButton from '@/components/MintSongButton'
-import MintFormFields from '@/components/MintFormFields'
+import MintBasicFormFields from '@/components/MintBasicFormFields'
 import contractInterface from '@/abi/catalog-factory-abi.json'
 import moduleManagerContractInterface from '@/abi/module-manager-abi.json'
 import createMusicMetadata from '@/utils/createMusicMetadata'
@@ -83,7 +83,7 @@ const MintForm = ({ contractAddress, moduleManagerContractAddress }) => {
 			<FormProvider {...methods}>
 				<form onSubmit={methods.handleSubmit(onSubmit)}>
 					<Stack space="10">
-						<MintFormFields />
+						<MintBasicFormFields />
 						<Box marginTop="8">
 							<MintSongButton loading={loading} />
 						</Box>
